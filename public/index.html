@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Actualités et inscriptions aux activités de l'AEEMCI Universitaire.">
+  <title>AEEMCI Universitaire | Activités et actualités</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#accueil" aria-label="Accueil AEEMCI Universitaire">
+      <span class="brand-mark">AU</span>
+      <span><strong>AEEMCI</strong><small>UNIVERSITAIRE</small></span>
+    </a>
+    <nav aria-label="Navigation principale">
+      <a href="#actualites">Actualités</a>
+      <a href="#evenements">Événements</a>
+      <a href="#inscription">Inscription</a>
+      <a class="nav-admin" href="#admin">Espace organisateur</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="accueil">
+      <div class="hero-content">
+        <p class="eyebrow">INFORMER · RASSEMBLER · SERVIR</p>
+        <h1>La vie de l’AEEMCI Universitaire, <span>au même endroit.</span></h1>
+        <p>Retrouve les activités, consulte les actualités et inscris-toi aux programmes de l’association.</p>
+        <div class="hero-actions">
+          <a class="button button-light" href="#evenements">Découvrir les activités</a>
+          <a class="button button-outline" href="#inscription">S’inscrire</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <span class="hero-card-label">LA COMMUNAUTÉ</span>
+        <strong>Une plateforme pour participer et rester informé.</strong>
+        <p>Les informations officielles seront publiées par les organisateurs autorisés.</p>
+      </div>
+    </section>
+
+    <section class="section" id="actualites">
+      <div class="section-heading">
+        <div><p class="eyebrow">RESTER INFORMÉ</p><h2>Dernières actualités</h2></div>
+        <p>Les annonces et informations de l’association.</p>
+      </div>
+      <div class="news-grid" id="news-list">
+        <article class="news-card">
+          <span class="tag">Information</span>
+          <h3>Bienvenue sur la plateforme</h3>
+          <p>Les actualités publiées apparaîtront ici lorsqu’elles seront ajoutées par l’équipe autorisée.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section events-section" id="evenements">
+      <div class="section-heading">
+        <div><p class="eyebrow">PARTICIPER</p><h2>Activités à venir</h2></div>
+        <p>Choisis une activité pour préparer ton inscription.</p>
+      </div>
+      <div class="event-grid" id="event-list">
+        <article class="event-card">
+          <div class="event-date"><span>AEEMCI</span><strong>Événement</strong></div>
+          <div class="event-body"><span class="tag">À annoncer</span><h3>Prochaine activité</h3><p>Les détails des prochains événements seront affichés ici.</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section registration-section" id="inscription">
+      <div class="registration-intro">
+        <p class="eyebrow">REJOINDRE UNE ACTIVITÉ</p>
+        <h2>Formulaire d’inscription</h2>
+        <p>Remplis les informations demandées. Vérifie ton numéro et ton adresse e-mail avant l’envoi.</p>
+        <ul>
+          <li>Une inscription par participant et par activité.</li>
+          <li>Les données seront accessibles aux organisateurs autorisés.</li>
+          <li>N’indique que les informations nécessaires à l’organisation.</li>
+        </ul>
+      </div>
+      <form class="registration-form" id="registration-form">
+        <div class="form-title"><span class="form-icon">01</span><div><h3>Informations du participant</h3><p>Les champs marqués d’un * sont obligatoires.</p></div></div>
+        <div class="form-grid">
+          <div class="field"><label for="fullName">Nom et prénoms *</label><input id="fullName" name="fullName" autocomplete="name" required minlength="3" maxlength="120" placeholder="Ex. : Aminata Koné"></div>
+          <div class="field"><label for="email">Adresse e-mail *</label><input id="email" name="email" type="email" autocomplete="email" required maxlength="160" placeholder="nom@exemple.com"></div>
+          <div class="field"><label for="phone">Téléphone *</label><input id="phone" name="phone" type="tel" autocomplete="tel" required minlength="8" maxlength="25" placeholder="Ex. : 07 00 00 00 00"></div>
+          <div class="field"><label for="institution">Université / établissement *</label><input id="institution" name="institution" required maxlength="160" placeholder="Nom de l’établissement"></div>
+          <div class="field"><label for="level">Niveau d’étude *</label><select id="level" name="level" required><option value="">Choisir un niveau</option><option>Licence 1</option><option>Licence 2</option><option>Licence 3</option><option>Master 1</option><option>Master 2</option><option>Doctorat</option><option>Autre</option></select></div>
+          <div class="field"><label for="eventId">Activité *</label><select id="eventId" name="eventId" required><option value="">Chargement des activités…</option></select></div>
+        </div>
+        <label class="consent"><input type="checkbox" id="consent" required><span>J’accepte que les informations ci-dessus soient utilisées pour gérer mon inscription à cette activité. *</span></label>
+        <button class="button button-primary submit-button" type="submit">Envoyer mon inscription</button>
+        <p class="form-message" id="form-message" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section class="section admin-section" id="admin">
+      <div class="section-heading">
+        <div><p class="eyebrow">GESTION INTERNE</p><h2>Espace organisateur</h2></div>
+        <p>Réservé aux responsables autorisés. Connecte-toi pour rechercher et exporter les inscriptions.</p>
+      </div>
+      <form id="login-form" class="login-form">
+        <div class="field"><label for="adminEmail">E-mail administrateur</label><input id="adminEmail" type="email" required autocomplete="username"></div>
+        <div class="field"><label for="adminPassword">Mot de passe</label><input id="adminPassword" type="password" required autocomplete="current-password"></div>
+        <button class="button button-primary" type="submit">Se connecter</button>
+      </form>
+      <p class="form-message" id="login-message" role="status" aria-live="polite"></p>
+      <div id="admin-panel" class="admin-panel" hidden>
+        <h3>Publier une activité</h3>
+        <form id="event-form" class="form-grid">
+          <div class="field"><label for="eventTitle">Titre de l’activité *</label><input id="eventTitle" required maxlength="160" placeholder="Ex. : Assemblée générale"></div>
+          <div class="field"><label for="eventDate">Date *</label><input id="eventDate" type="date" required></div>
+          <div class="field"><label for="eventStatus">Inscriptions</label><select id="eventStatus"><option value="open">Ouvertes</option><option value="closed">Fermées</option></select></div>
+          <div class="field"><label for="eventDescription">Description</label><input id="eventDescription" maxlength="2000" placeholder="Informations pratiques"></div>
+          <button class="button button-primary submit-button" type="submit">Publier l’activité</button>
+        </form>
+        <p class="form-message" id="event-message" role="status" aria-live="polite"></p>
+        <h3>Publier une actualité</h3>
+        <form id="news-form" class="form-grid">
+          <div class="field"><label for="newsTitle">Titre *</label><input id="newsTitle" required maxlength="160" placeholder="Ex. : Communiqué de rentrée"></div>
+          <div class="field"><label for="newsCategory">Catégorie</label><select id="newsCategory"><option>Actualité</option><option>Communiqué</option><option>Information</option></select></div>
+          <div class="field field-wide"><label for="newsBody">Texte *</label><textarea id="newsBody" required maxlength="4000" rows="5" placeholder="Rédige ici le contenu de l’actualité ou du communiqué"></textarea></div>
+          <button class="button button-primary submit-button" type="submit">Publier l’actualité</button>
+        </form>
+        <p class="form-message" id="news-message" role="status" aria-live="polite"></p>
+        <h3>Inscriptions reçues</h3>
+        <div class="admin-toolbar">
+          <input id="search-input" type="search" placeholder="Rechercher nom, e-mail, activité…">
+          <button id="export-button" class="button button-primary" type="button">Exporter en CSV</button>
+          <button id="logout-button" class="button button-outline-dark" type="button">Déconnexion</button>
+        </div>
+        <p id="admin-summary"></p>
+        <div class="table-wrap"><table><thead><tr><th>Participant</th><th>Contact</th><th>Établissement</th><th>Activité</th><th>Date</th></tr></thead><tbody id="registrations-table"></tbody></table></div>
+        <p class="small-note">N’exporte et ne partage les listes qu’avec les personnes autorisées à gérer l’activité.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand brand-footer" href="#accueil"><span class="brand-mark">AU</span><span><strong>AEEMCI</strong><small>UNIVERSITAIRE</small></span></a>
+    <p>Plateforme d’information et d’inscription aux activités.</p>
+    <span>© <span id="year"></span> AEEMCI Universitaire</span>
+  </footer>
+</body>
+</html>

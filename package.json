@@ -1,0 +1,18 @@
+{
+  "name": "aeemci-universitaire",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Plateforme d'actualités, événements et inscriptions de l'AEEMCI Universitaire",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "better-sqlite3": "^11.8.1",
+    "express": "^4.21.2"
+  },
+  "engines": {
+    "node": ">=22 <25"
+  }
+}
