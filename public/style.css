@@ -30,3 +30,14 @@ h1,h2,h3,p{margin-top:0}h1,h2,h3{font-family:Manrope,Arial,sans-serif;line-heigh
 @media(max-width:560px){.site-header{padding:13px 18px}nav{gap:12px;font-size:12px}.nav-admin{padding:7px 9px}.hero,.section{padding:43px 18px}.hero h1{font-size:36px}.section-heading{align-items:flex-start;flex-direction:column;gap:10px}.news-grid,.event-grid,.form-grid,.login-form{grid-template-columns:1fr}.registration-form{padding:21px 17px}.login-form button{grid-column:auto}.site-footer{padding:25px 18px;align-items:flex-start;flex-direction:column}.hero-actions .button{width:100%}}
 
 .admin-profile{display:flex;align-items:center;gap:12px;padding:14px 16px;margin-bottom:22px;background:#f4f8fc;border:1px solid var(--line);border-radius:12px;max-width:320px}.admin-profile-icon{width:42px;height:42px;display:grid;place-items:center;border-radius:12px;background:#eaf3fc;font-size:23px}.admin-profile strong,.admin-profile small{display:block;line-height:1.35}.admin-profile strong{font:700 13px Manrope,sans-serif;color:var(--navy)}.admin-profile small{font-size:11px;color:var(--muted);margin-top:3px}
+
+
+/* Navigation: transitions discrètes, accessibles au clavier et adaptées aux mobiles */
+.site-header nav a{position:relative;display:inline-flex;align-items:center;min-height:42px;transition:color .22s ease,background-color .22s ease,border-color .22s ease,transform .22s ease}
+.site-header nav a:not(.nav-admin)::after{content:"";position:absolute;left:0;right:0;bottom:3px;height:2px;background:var(--orange);border-radius:2px;transform:scaleX(0);transform-origin:left center;transition:transform .22s ease}
+.site-header nav a:not(.nav-admin):hover::after,.site-header nav a:not(.nav-admin):focus-visible::after{transform:scaleX(1)}
+.site-header nav a:hover{color:var(--blue);transform:translateY(-1px)}
+.site-header nav a:focus-visible{outline:3px solid rgba(242,154,56,.45);outline-offset:4px;border-radius:4px}
+.site-header nav .nav-admin{transition:color .22s ease,background-color .22s ease,border-color .22s ease,transform .22s ease}
+.site-header nav .nav-admin:hover{background:var(--blue);border-color:var(--blue);color:#fff;transform:translateY(-2px)}
+@media(prefers-reduced-motion:reduce){.site-header nav a,.site-header nav a::after{transition:none!important}.site-header nav a:hover{transform:none}}
