@@ -11,6 +11,7 @@ const eventForm = document.querySelector("#event-form");
 const eventMessage = document.querySelector("#event-message");
 const newsForm = document.querySelector("#news-form");
 const newsMessage = document.querySelector("#news-message");
+const dashboardMessage = document.querySelector("#dashboard-message");
 let registrations = [];
 let sessionToken = "";
 
@@ -100,11 +101,25 @@ loginForm.addEventListener("submit", async event => {
     sessionToken = result.token;
     loginForm.hidden = true;
     adminPanel.hidden = false;
+    await loadDashboard();
     await loadRegistrations();
   } catch (error) {
     showMessage(loginMessage, error.message, "error");
   }
 });
+
+async function loadDashboard() {
+  try {
+    const stats = await api("/admin/overview");
+    document.querySelector("#stat-registrations").textContent = stats.registrations;
+    document.querySelector("#stat-events").textContent = stats.events;
+    document.querySelector("#stat-open-events").textContent = stats.openEvents;
+    document.querySelector("#stat-news").textContent = stats.news;
+    showMessage(dashboardMessage, "");
+  } catch (error) {
+    showMessage(dashboardMessage, "Impossible de charger les statistiques : " + error.message, "error");
+  }
+}
 
 async function loadRegistrations() {
   try {
