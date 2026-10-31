@@ -41,3 +41,11 @@ h1,h2,h3,p{margin-top:0}h1,h2,h3{font-family:Manrope,Arial,sans-serif;line-heigh
 .site-header nav .nav-admin{transition:color .22s ease,background-color .22s ease,border-color .22s ease,transform .22s ease}
 .site-header nav .nav-admin:hover{background:var(--blue);border-color:var(--blue);color:#fff;transform:translateY(-2px)}
 @media(prefers-reduced-motion:reduce){.site-header nav a,.site-header nav a::after{transition:none!important}.site-header nav a:hover{transform:none}}
+
+
+.admin-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:22px 0}
+.admin-stat{padding:18px 20px;border:1px solid var(--line);border-radius:12px;background:#fff;display:flex;flex-direction:column;gap:8px}
+.admin-stat span{font-size:11px;font-weight:700;color:var(--muted)}
+.admin-stat strong{font:800 28px/1 Manrope,sans-serif;color:var(--navy)}
+@media(max-width:850px){.admin-stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:420px){.admin-stats{grid-template-columns:1fr 1fr;gap:8px}.admin-stat{padding:13px}.admin-stat strong{font-size:23px}}
