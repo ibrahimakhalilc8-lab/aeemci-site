@@ -107,6 +107,13 @@
       <p class="form-message" id="login-message" role="status" aria-live="polite"></p>
       <div id="admin-panel" class="admin-panel" hidden>
         <div class="admin-profile" aria-label="Profil administrateur"><span class="admin-profile-icon" aria-hidden="true">💎</span><span><strong>Profil administrateur</strong><small>Espace de gestion AEEMCI</small></span></div>
+        <div class="admin-stats" aria-label="Statistiques de la plateforme">
+          <article class="admin-stat"><span>Inscriptions reçues</span><strong id="stat-registrations">—</strong></article>
+          <article class="admin-stat"><span>Activités publiées</span><strong id="stat-events">—</strong></article>
+          <article class="admin-stat"><span>Inscriptions ouvertes</span><strong id="stat-open-events">—</strong></article>
+          <article class="admin-stat"><span>Actualités publiées</span><strong id="stat-news">—</strong></article>
+        </div>
+        <p class="form-message" id="dashboard-message" role="status" aria-live="polite"></p>
         <h3>Publier une activité</h3>
         <form id="event-form" class="form-grid">
           <div class="field"><label for="eventTitle">Titre de l’activité *</label><input id="eventTitle" required maxlength="160" placeholder="Ex. : Assemblée générale"></div>
