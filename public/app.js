@@ -182,7 +182,7 @@ eventForm.addEventListener("submit", async event => {
     }) });
     eventForm.reset();
     showMessage(eventMessage, "Activité publiée. Elle apparaît maintenant sur le site.", "success");
-    await loadPublicContent();
+    await Promise.all([loadPublicContent(), loadDashboard()]);
   } catch (error) {
     showMessage(eventMessage, error.message, "error");
   }
@@ -199,7 +199,7 @@ newsForm.addEventListener("submit", async event => {
     }) });
     newsForm.reset();
     showMessage(newsMessage, "Actualité publiée. Elle apparaît maintenant sur le site.", "success");
-    await loadPublicContent();
+    await Promise.all([loadPublicContent(), loadDashboard()]);
   } catch (error) {
     showMessage(newsMessage, error.message, "error");
   }
