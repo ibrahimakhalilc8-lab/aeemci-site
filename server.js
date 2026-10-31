@@ -177,6 +177,20 @@ app.get("/api/admin/registrations", requireAdmin, asyncRoute(async (req, res) =>
   res.json(rows);
 }));
 
+app.get("/api/admin/overview", requireAdmin, asyncRoute(async (req, res) => {
+  const [registrationCount, eventCounts, newsCount] = await Promise.all([
+    query("SELECT COUNT(*)::int AS total FROM registrations"),
+    query("SELECT COUNT(*)::int AS total, COUNT(*) FILTER (WHERE status = 'open')::int AS open FROM events"),
+    query("SELECT COUNT(*)::int AS total FROM news WHERE published = TRUE")
+  ]);
+  res.json({
+    registrations: registrationCount[0].total,
+    events: eventCounts[0].total,
+    openEvents: eventCounts[0].open,
+    news: newsCount[0].total
+  });
+}));
+
 app.post("/api/admin/events", requireAdmin, asyncRoute(async (req, res) => {
   const title = clean(req.body.title, 160);
   const description = clean(req.body.description, 2000);
